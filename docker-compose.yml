@@ -1,14 +1,14 @@
 version: '3.7'
 
 services:
-  template-docker-nestjs:
-    container_name: template-docker-nestjs
+  nestjs-do-scg:
+    container_name: nestjs-do-scg
     build:
       context: .
       dockerfile: ./docker/Dockerfile
     restart: always
     ports:
-      - "9002:3000"
+      - "6319:3000"
     volumes:
       - .:/usr/src/app
       - ./.env:/usr/src/app/.env:cached

@@ -1,0 +1,20 @@
+version: '3.7'
+
+services:
+  template-docker-nestjs:
+    container_name: template-docker-nestjs
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile
+    restart: always
+    ports:
+      - "9002:3000"
+    volumes:
+      - .:/usr/src/app
+      - ./.env:/usr/src/app/.env:cached
+      - /usr/src/app/node_modules
+    environment:
+      APP_ENV: local
+      NODE_ENV: local
+    extra_hosts:
+      - test-node-js.local:127.0.0.1

@@ -8,7 +8,7 @@ services:
       dockerfile: ./docker/Dockerfile
     restart: always
     ports:
-      - "3000:3000"
+      - "6319:3000"
     volumes:
       - .:/usr/src/app
       - ./.env:/usr/src/app/.env:cached

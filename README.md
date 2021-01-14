@@ -35,5 +35,5 @@ Running Application
 ------------------------------------
 Open the browser
 ```bash
-http://localhost:3000
+http://localhost:6319
 ```

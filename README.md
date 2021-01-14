@@ -1,12 +1,39 @@
-# template-docker-nestjs
+NestJS Do SCG
+======
 
-setup docker for nestjs
+NOTE
+----
+Assignment SCG, by NestJS framework in implement project.
 
-initial basic project , i want to set up docker for support develop project by Nest JS.
+Application flow pattern:
+---------------------
+https://github.com/suraboy/nestjs-do-scg
 
+Run the docker for development:
+---------------------
+First you need to copy `.env.local` to `.env` for setup environment of appplication
 
-### 
-    docker-compose up -d
+You can start the application and run the containers in the background, use following command inside project root:
 
-Runs the app in the development mode.<br />
-Open [http://localhost:9002](http://localhost:9002) to view it in the browser.
+```bash
+docker-compose up -d
+```
+
+Installing Dependencies via Composer
+------------------------------------
+Run the composer installer:
+
+```bash
+docker exec -it nestjs-do-scg npm install
+```
+or
+```bash
+docker exec -it nestjs-do-scg npm update
+```
+
+Running Application
+------------------------------------
+Open the browser
+```bash
+http://localhost:3000
+```

@@ -29,7 +29,7 @@ export class DoScgService {
   }
 
   async replyNotificationLine(req) {
-    console.log(req.body)
+    console.log(req.body);
     return Promise.all(req.body.events.map(this.handleEvent))
       .then((result) => result)
       .catch((err) => {

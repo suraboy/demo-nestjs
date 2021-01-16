@@ -5,9 +5,11 @@ import {
   Req,
   Res,
   HttpStatus,
+  Query,
 } from '@nestjs/common';
 import { Response } from 'express';
 import { DoScgService } from './doScg.service';
+import { MapDoScgDto } from './dto/map-doscg.dto';
 
 @Controller('v1/doscg')
 export class DoScgController {
@@ -63,9 +65,12 @@ export class DoScgController {
 
   @Get('/map')
   @HttpCode(200)
-  async curlApiGoogleMap(@Req() request, @Res() res: Response) {
-    const response = await this.doScgService.getApiMap();
-
+  async curlApiGoogleMap(
+    @Req() request,
+    @Res() res: Response,
+    @Query() mapDoScgDto: MapDoScgDto,
+  ) {
+    const response = await this.doScgService.getApiMap(request);
     return res.status(200).json(response);
   }
 }

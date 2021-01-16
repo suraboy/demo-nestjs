@@ -12,11 +12,18 @@ export class DoScgService {
     }
   }
 
-  async getApiMap() {
+  async getApiMap(req) {
+    const origin = req.query.origin + ',th';
+    const destination = req.query.destination + ',th';
+    const params = {
+      origin: origin,
+      destination: destination,
+      key: 'AIzaSyDh_aIUOx5_DqHcAhKl7vW6r4HS_1d0bX0',
+    };
     const response = await this.httpService
-      .get(
-        'https://maps.googleapis.com/maps/api/directions/json?origin=CentralWorld,th&destination=SCG Bangsue,th&key=AIzaSyDh_aIUOx5_DqHcAhKl7vW6r4HS_1d0bX0',
-      )
+      .get(`https://maps.googleapis.com/maps/api/directions/json`, {
+        params: params,
+      })
       .toPromise();
     return response.data;
   }

@@ -1,9 +1,11 @@
 import {
   Controller,
   Get,
+  Post,
   HttpCode,
   Req,
   Res,
+  Body,
   HttpStatus,
   Query,
 } from '@nestjs/common';
@@ -71,6 +73,13 @@ export class DoScgController {
     @Query() mapDoScgDto: MapDoScgDto,
   ) {
     const response = await this.doScgService.getApiMap(request);
+    return res.status(200).json(response);
+  }
+
+  @Post('/webhook')
+  @HttpCode(200)
+  async webHookLineBot(@Body() req,@Req() request, @Res() res: Response) {
+    const response = await this.doScgService.replyNotificationLine(req);
     return res.status(200).json(response);
   }
 }

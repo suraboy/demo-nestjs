@@ -5,6 +5,9 @@
   "version": "1.0.0",
   "description": "Nest TypeScript repository",
   "license": "MIT",
+  "engines": {
+    "node": "12.11.1"
+  },
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "nest build",

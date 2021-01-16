@@ -78,7 +78,7 @@ export class DoScgController {
 
   @Post('/webhook')
   @HttpCode(200)
-  async webHookLineBot(@Body() req,@Req() request, @Res() res: Response) {
+  async webHookLineBot(@Body() req, @Req() request, @Res() res: Response) {
     const response = await this.doScgService.replyNotificationLine(req);
     return res.status(200).json(response);
   }

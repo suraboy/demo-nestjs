@@ -12,6 +12,7 @@ import {
 import { Response } from 'express';
 import { DoScgService } from './doScg.service';
 import { MapDoScgDto } from './dto/map-doscg.dto';
+import { WebHookDoScgDto } from './dto/webhook-doscg.dto';
 
 @Controller('v1/doscg')
 export class DoScgController {
@@ -78,8 +79,10 @@ export class DoScgController {
 
   @Post('/webhook')
   @HttpCode(200)
-  async webHookLineBot(@Body() req, @Req() request, @Res() res: Response) {
-    const response = await this.doScgService.replyNotificationLine(req);
+  async webHookLineBot(@Body() webHookDoScgDto: WebHookDoScgDto, @Req() request, @Res() res: Response) {
+    const response = await this.doScgService.replyNotificationLine(
+      webHookDoScgDto,
+    );
     return res.status(200).json(response);
   }
 }

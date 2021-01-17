@@ -30,8 +30,6 @@ export class DoScgService {
   }
 
   async replyNotificationLine(req) {
-    //waiting 10s for reply msg to client
-    await this.delayTime(10000);
     return Promise.all(req.events.map(this.handleEvent))
       .then((result) => result)
       .catch((err) => {
@@ -58,7 +56,4 @@ export class DoScgService {
     });
   }
 
-  async delayTime(ms) {
-    return new Promise((resolve) => setTimeout(resolve, ms));
-  }
 }

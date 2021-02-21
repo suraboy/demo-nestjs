@@ -37,3 +37,10 @@ Open the browser
 ```bash
 http://localhost:6319
 ```
+
+Example Application
+------------------------------------
+Open the browser
+```bash
+https://nestjs-suraboy.herokuapp.com/v1/doscg
+```

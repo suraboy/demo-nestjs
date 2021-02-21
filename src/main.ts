@@ -19,7 +19,7 @@ async function bootstrap() {
     }),
   );
   app.useGlobalFilters(new ValidateException());
-  const server_port = process.env.SERVICE_PORT || process.env.PORT || 80;
+  const server_port = process.env.SERVICE_PORT || process.env.PORT || 5000;
   const server_host = process.env.SERVICE_HOST || '0.0.0.0';
   await app.listen(server_port, server_host, () => {
     console.log('Listening on port %d', server_port);

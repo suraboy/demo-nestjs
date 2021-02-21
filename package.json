@@ -8,6 +8,7 @@
   "engines": {
     "node": "12.11.1"
   },
+  "type": "module",
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "nest build",

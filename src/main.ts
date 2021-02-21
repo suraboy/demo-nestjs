@@ -2,8 +2,9 @@ import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import * as dotenv from 'dotenv';
 import { ValidationError } from 'class-validator';
-import { BadRequestException, ValidationPipe, } from '@nestjs/common';
+import { BadRequestException, ValidationPipe } from '@nestjs/common';
 import { ValidateException } from './helpers/validate.exception';
+
 dotenv.config();
 
 async function bootstrap() {
@@ -18,7 +19,8 @@ async function bootstrap() {
     }),
   );
   app.useGlobalFilters(new ValidateException());
-  await app.listen(process.env.SERVICE_PORT || 5000);
+  const post = process.env.SERVICE_PORT || 5000;
+  await app.listen(post, () => console.log('Post is' + post));
 }
 
 bootstrap();

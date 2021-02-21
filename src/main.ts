@@ -20,7 +20,7 @@ async function bootstrap() {
   );
   app.useGlobalFilters(new ValidateException());
   const post = process.env.SERVICE_PORT || 5000;
-  await app.listen(post, () => console.log('Post is' + post));
+  await app.listen(post, () => console.log('Post is ' + post));
 }
 
 bootstrap();
